@@ -13,9 +13,10 @@ function cadastroPessoa() {
 
     let nome = document.getElementById("nome").value;
     let telefone = document.getElementById("telefone").value;
-    let entrada = {
+    let entrada = { 
         "nome" : nome,
         "telefone" : telefone
+
     }
 
 
@@ -30,7 +31,11 @@ function cadastroPessoa() {
     // DELETE --> Remove itens existentes
     const options = {
         method: "POST",
-        body: entrada
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(entrada)
     }
 
     const url = "https://apibasica.herokuapp.com/pessoas";
