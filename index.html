@@ -14,30 +14,41 @@
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
 </head>
 
 <body>
-    <div class="container">
-        <h1>Cadastro de Usuários na DB</h1>
 
-        <input id="nome" placeholder="Digite seu Nome Completo" maxlength="255">
- 
-    </div>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon" />
+            <h1>Aditya News</h1>
+          </div>
+      
+          <!-- Login Form --> 
+          <!-- action="/main.html" -->
+          <form>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
+            <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+          </form>
 
-    <div class="container">
-
-        <input id="telefone" placeholder="Digite seu telefone" data-mask="(00) 0000-0000">
-
-    </div>
-
-    <div class="container">
-        <br>
-        <button type="button" class="btn btn-warning" onclick="limpar()">Limpar</button>
-        <button class="btn cadastrar" onclick="cadastroPessoa()">Cadastrar</button>
-        <br>
-        <h3 id="respostaCadastro"></h3>
-    </div>
-
+          <button onclick="loginBackend()"></button>
+          <br>
+          <h3 id="header de retorno"></h3>
+      
+          <!-- Remind Passowrd -->
+      
+        </div>
+      </div>
 
 
 

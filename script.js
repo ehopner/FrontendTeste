@@ -1,56 +1,33 @@
 console.log("Hello tech insiders");
 console.log("Hoje é dia de javascript");
 
-//var idade = prompt("Digite sua idade");
-//console.log("Minha idade é de: " + idade);
-
-function limpar() {
-    document.getElementById("nome").value = "";
-    document.getElementById("telefone").value = "";
-}
-
-function cadastroPessoa() {
-
-    let nome = document.getElementById("nome").value;
-    let telefone = document.getElementById("telefone").value;
-    let entrada = { 
-        "nome" : nome,
-        "telefone" : telefone
-
+function loginBackend() {
+    let credenciais = {
+        "funcional": document.getElementById("login").value,
+        "password": document.getElementById("password").value
     }
 
+    console.log("inicio da conexao com backend")
 
-    // myHeaders.append('Content-Type', 'image/jpeg');
-
-
-    console.log("inicio da funçao carregar dados")
-    //Verbos HTTP
-    // GET --> Recuperar itens
-    // POST --> Enviar novos itens
-    // PUT --> Atualizacao de itens pre existentes
-    // DELETE --> Remove itens existentes
     const options = {
         method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(entrada)
+        // headers: {
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify(credenciais)
     }
 
-    const url = "https://apibasica.herokuapp.com/pessoas";
-
+    const url = "https://bend-byte.herokuapp.com/login";
     fetch(url, options)
         .then(function (response) {
             if (response.status == 200) {
 
-                response.json()
-                    .then(function (json) {
-                        document.getElementById("respostaCadastro").innerHTML = "Usuário Cadastrado!"
-                    })
-                    .catch(function (err) {
-                        console.error(err)
-                    })
+                for (var pair of response.headers.entries()) {
+                if (pair[0] == "Authorization") {
+                    this.setState({token: pair[1]})
+                }
+                }
 
             }
         })
@@ -60,5 +37,10 @@ function cadastroPessoa() {
 
     console.log("final da funçao carregar dados")
 
-}
 
+
+function limpar() {
+    document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
+}
+}
